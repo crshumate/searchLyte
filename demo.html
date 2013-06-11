@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>livesearch</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Christopher Shumate">
+	<link href='searchLyte.css' rel='stylesheet' type='text/css' />
+	<link href='demo.css' rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="jQuery.searchLyte.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#searchKeywords").searchLyte()	
+	});
+	
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+			<div id="documentation">
+				<h1>jQuery SearchLyte Plugin</h1>
+				<p>Version Alpha 0.0.1</p>
+				
+					<div id="demo">
+							<div id="list">
+								Back to Mobile View::http://www.aol.com/;
+								WELCOME, SIGN IN::http://www.aol.com/;
+								Sign Up::http://www.aol.com/;
+								Options::http://www.aol.com/;
+								Account Info::http://www.aol.com/;
+								Change Canvas::http://www.aol.com/;
+								Make AOL My Homepage::http://www.aol.com/;
+								Today::http://www.aol.com/;
+								AIM::http://www.aol.com/;
+								Autos::http://www.aol.com/;
+								Games::http://www.aol.com/;
+								Horoscopes::http://www.aol.com/;
+								Radio::http://www.aol.com/;
+								More::http://www.aol.com/;
+								News::http://www.aol.com/;
+								Huffington Post::http://www.aol.com/;
+								HuffPost Live::http://www.aol.com/;
+								Engadget::http://www.aol.com/;
+								Techcrunch::http://www.aol.com/;
+								SportingNews::http://www.aol.com/;
+								Entertainment::http://www.aol.com/;
+								Cambio::http://www.aol.com/;
+								Celebrity News::http://www.aol.com/;
+								Games::http://www.aol.com/;
+								Moviefone::http://www.aol.com/;
+								Finance::http://www.aol.com/;
+								Business News::http://www.aol.com/;
+								DailyFinance::http://www.aol.com/;
+								Jobs::http://www.aol.com/;
+								My Portfolios::http://www.aol.com/;
+								Real Estate::http://www.aol.com/;
+								Small Business::http://www.aol.com/;
+								Lifestyle::http://www.aol.com/;
+								Black Voices::http://www.aol.com/;
+								Coupons::http://www.aol.com/;
+								Health::http://www.aol.com/;
+								Heidi Klum::http://www.aol.com/;
+								KitchenDaily::http://www.aol.com/;
+								Latino::http://www.aol.com/;
+								Makers::http://www.aol.com/;
+								Mandatory::http://www.aol.com/;
+								Mom.me::http://www.aol.com/;
+								PawNation::http://www.aol.com/;
+								StyleList::http://www.aol.com/;
+								Travel::http://www.aol.com/;
+								Local::http://www.aol.com/;
+								Huffpost Local::http://www.aol.com/;
+								MapQuest::http://www.aol.com/;
+								MapQuest Discover::http://www.aol.com/;
+								Patch::http://www.aol.com/;
+								Weather::http://www.aol.com/;
+								Yellow Pages::http://www.aol.com/;
+								MyBenefits::http://www.aol.com/;
+								AOL Desktop::http://www.aol.com/;
+								AOL Toolbar::http://www.aol.com/;
+								Browser Update::http://www.aol.com/;
+								Downloads::http://www.aol.com/;
+								Free Email::http://www.aol.com/;
+								Lifestore::http://www.aol.com/;
+								Mobile Apps::http://www.aol.com/;
+								Set Location::http://www.aol.com/;
+								Change Location::http://www.aol.com/;
+								Pause::http://www.aol.com/;
+								Long-Lost Nazi Documents Uncovered ::http://www.aol.com/;
+								Chilling crimes detailed in its pages::http://www.aol.com/;
+								Families Mark 6-Month Newtown Anniversary::http://www.aol.com/;
+								Bin Laden Raid Member Has Injury::http://www.aol.com/;
+								Jury Selection Begins in Zimmerman Trial::http://www.aol.com/;
+								Latest Headlines::http://www.aol.com/;
+								German WWII Bomber Raised From English Channel::http://www.aol.com/;
+								Newtown Schools Briefly Put On Lockdown After Threat::http://www.aol.com/;
+								Prince Philip Spends 92nd Birthday In Hospital::http://www.aol.com/;
+								Lululemon CEO Christine Day To Step Down::http://www.aol.com/;
+								Obama Administration Held 22 Briefings For Congress On PRISM's Legal Foundation::http://www.aol.com/;
+								Ted Cruz Says Obama Is The Biggest Obstacle To Immigration Reform::http://www.aol.com/;
+								County Commissioners Vote To Ignore State's New Gun Laws::http://www.aol.com/;
+								Barbara Vucanovich, First Woman To Represent Nevada In Congress, Dies At 91::http://www.aol.com/;
+								Visitors Say Benedict XVI's Health Is Declining::http://www.aol.com/;
+								Koreas To Hold Highest-Level Talks In Years::http://www.aol.com/;
+								More News::http://www.aol.com/;
+
+								</div>
+								<form>
+									<label for="searchKeywords">Type to search:</label>
+									<input id="searchKeywords" placeholder="search" type="text" />
+								</form>
+								<div id="slWrapper">
+									<div id="searchLyte"></div>
+								</div>
+							</div>
+	
+				<p>This jQuery plugin is a search-as-you-type plugin based off of Google's live search. It is fairly simple to use. The plugin needs to know about three items:</p>
+				<ul>
+					<li><p><strong>The Search List</strong></p>
+						<p>The search list is where you place your pre-populated search strings and urls. It is on the roadmap to make this plugin ajax compatible. Currently however you must pre-populate your search results and save it in a hidden div on the page. The default id for this div is #list but it is customizable via the options array. The search string and url must be saved in the following format:</p>
+						 <ul>
+							<li style="list-style:none;">Random Search String::http://facebook.com;</li>
+						</ul>
+						<p>Notice the search string and url is separated by a double colon, and the entire search string ends with a semicolon. It is imperative you follow this format else the plugin will not parse your search results correctly.</p>
+						</li>
+			
+						<li>
+							<p><strong>The Result Box</strong></p>
+							<p>The result box contains all relevant results for your current query and is updated as you type each character. When the results appear you can arrow down through the results and hit return and you will be redirected to the url associated with the search string.</p>
+							<p>In order for the search box to automatically scroll as you reach the bottom of your current results list it makes use of jQuery.position(). In order for .position() to return the correct position your result box must be absolutely, relatively or fixed positioned. Static positioning returns the position as it relates to the first non-static parent. The searchLyte.css takes care of this for you and makes it absolutely positioned while wrapped in a relatively positioned wrapper. Simply copy the HTML below and attach the CSS and JS files.</p>
+					<p>The result box by default has an id of searchLyte but this is customizable via the options array.</p>
+							</li>
+							
+					   <li>
+					   		<p><strong>The Query Input</strong></p>
+					       <p>The query input has no default id as this is where you attach the $.searchLyte plugin. An example of this would be: <br /> <code>$("#my-cool-input").searchLyte();</code></p>
+					
+					   </li>
+					
+				</ul>
+				
+				<h2>Final Thoughts</h2>
+				<p>To get you started simply copy and paste the code below into your page.</p>
+<h2>The Head of your Page</h2>
+<pre>
+	<code>
+		&lt;head&gt;	
+		    	&lt;link type='text/css' rel='stylesheet' href='searchLyte.css'  /&gt;
+			&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.8.0.min.js&quot;&gt;&lt;/script&gt;
+			&lt;script type=&quot;text/javascript&quot; src=&quot;jQuery.searchLyte.js&quot;&gt;&lt;/script&gt;
+		&lt;/head&gt;
+	</code>
+</pre>
+				
+<h2>The JS</h2>
+<pre><code>
+
+		
+	$("#my-cool-input").searchLyte({
+		searchList:'#list',
+        	resultBox:'#searchLyte',
+		ajax:false,
+		scrollSpeed:300, //how fast the results box scrolls through your results
+		autoComplete: 'off' //sets the autoComplete attribute to off so it plays nice with your browser
+	});
+	</code>
+	</pre>
+		
+		<h2>The HTML</h2>
+		 <pre>
+			<code>
+			&lt;div id=&quot;list&quot;&gt;
+			  Back to Mobile View::http://www.aol.com/;
+			  WELCOME, SIGN IN::http://www.aol.com/;
+			  Sign Up::http://www.aol.com/;
+			  Options::http://www.aol.com/;
+			  Account Info::http://www.aol.com/;
+			  Change Canvas::http://www.aol.com/;
+			  ...you get the idea...
+
+			&lt;/div&gt;
+				&lt;form&gt;
+				  &lt;label for=&quot;searchKeywords&quot;&gt;Type to search:&lt;/label&gt;
+				  &lt;input id=&quot;searchKeywords&quot; placeholder=&quot;search&quot; type=&quot;text&quot; /&gt;
+				&lt;/form&gt;
+				&lt;div id=&quot;slWrapper&quot;&gt;
+				  &lt;div id=&quot;searchLyte&quot;&gt;&lt;/div&gt;
+				&lt;/div&gt;
+				
+	
+				</code>
+		</pre>
+	
+	
+		<h2>Roadmap Items</h2>
+		<ul>
+			<li>Refactor and minify code</li>
+			<li>Add Ajax functionality</li>
+			<li>Add an option to have search result selection open in new window</li>
+			<li>Improve the show/hide functionality of the result box</li>
+
+		</ul>
+		</div>
+</div>
+
+</body>
+</html>
