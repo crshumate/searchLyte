@@ -50,15 +50,15 @@
 						var searchArr = $.trim(title).split(" ");
 						
 						for (var j in searchArr){
-							if($("li.nomatch").length > 0) $("li.nomatch").remove();
+							if($('li.nomatch').length > 0) $("li.nomatch").remove();
 		                	var searchTerm = searchArr[j].toLowerCase();
 							var keyLength = currentVal.length;
 							var searchTermSlice = searchTerm.slice(0,keyLength);
 		                
 						
 							if(currentVal==searchTermSlice){
-			                    var link = $("<a />").text(title).attr('href', href);
-								var li  = $("<li />").addClass('result').append(link);
+			                    var link = $('<a />').text(title).attr('href', href);
+								var li  = $('<li />').addClass('result').append(link);
 			                    resultList.append(li);
 								break;
 										
@@ -100,13 +100,13 @@
 
 		function resultLogic(e, slHeight, rbHeight){
             var scrollPos;
-            var activeElement =  resultList.find("li.active");
+            var activeElement =  resultList.find('li.active');
             var liHeight = activeElement.innerHeight();
 		    var activeIdx = resultList.find('li').index(activeElement);
-            var allResults = resultList.find("li");
+            var allResults = resultList.find('li');
             var nextLi = activeIdx+1;
 			var prevLi =  activeIdx-1;
-			var totalLi= resultList.find("li").length;
+			var totalLi= resultList.find('li').length;
 			var lastLi = totalLi-1;
 			if(!settings.offset){
 			 var offset = rbHeight-liHeight;	
@@ -122,9 +122,9 @@
 				}else{
                         activeElement.removeClass('active');
                         allResults.eq(prevLi).addClass('active');
-                        searchBox.val(resultList.find("li.active a").text());
+                        searchBox.val(resultList.find('li.active a').text());
 
-                      scrollPos = resultList.find("li.active").position();
+                      scrollPos = resultList.find('li.active').position();
                       if(typeof(scrollPos)=='object'){
                           if(scrollPos.top <= liHeight){
                               resultBox.animate({scrollTop: '-='+offset}, settings.scrollSpeed);
@@ -137,7 +137,7 @@
                     allResults.eq(lastLi).addClass('active');
 					searchBox.val(activeElement.find("a").text());
 
-                  scrollPos = resultList.find("li.active").position();
+                  scrollPos = resultList.find('li.active').position();
                   if(typeof(scrollPos)=='object'){
                      resultBox.animate({scrollTop: slHeight}, settings.scrollSpeed)
                   }
@@ -146,11 +146,11 @@
 			    }else if (e.keyCode == 40) {
 				    if(activeIdx==-1){
                         allResults.eq(0).addClass('active');
-                        searchBox.val(resultList.find("li.active a").text());
+                        searchBox.val(resultList.find('li.active a').text());
 						}else{
                               allResults.eq(activeIdx).removeClass('active');
                               allResults.eq((nextLi)).addClass('active');
-                              searchBox.val(resultList.find("li.active a").text());
+                              searchBox.val(resultList.find('li.active a').text());
 
 
                         scrollPos = resultList.find('li.active').position();
@@ -171,7 +171,7 @@
 
 				    }else if(e.keyCode==13){
                         if(activeElement.length > 0){
-                            window.location= activeElement.find("a").attr('href');
+                            window.location= activeElement.find('a').attr('href');
                         }
 
 				    }
