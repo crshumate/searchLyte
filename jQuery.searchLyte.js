@@ -12,7 +12,8 @@
                 resultBox:'#searchLyte',
 				ajax:false,
 				scrollSpeed:300,
-				autoComplete: 'off'
+				autoComplete: 'off',
+                ajaxUrl:'json.php'
             },
             settings = $.extend({}, defaults, options);
 
@@ -37,35 +38,11 @@
 		         	resultLogic(e, slHeight, rbHeight)	
    
 		         }else if(currentVal.match(/[A-z0-9\-\s]+/g)){
-		            userInput = currentVal;
-		            resultBox.fadeIn(500);
-		            resultList.html("<li class='nomatch'>No match found.</li>");
-
-		            for(var i in searchTerms){
-			            var searchString = searchTerms[i];
-			 			searchString = $.trim(searchString);
-						var keyVal = searchString.split("::");
-						var href = keyVal[1];
-						var title=keyVal[0]
-						var searchArr = $.trim(title).split(" ");
-						
-						for (var j in searchArr){
-							if($('li.nomatch').length > 0) $("li.nomatch").remove();
-		                	var searchTerm = searchArr[j].toLowerCase();
-							var keyLength = currentVal.length;
-							var searchTermSlice = searchTerm.slice(0,keyLength);
-		                
-						
-							if(currentVal==searchTermSlice){
-			                    var link = $('<a />').text(title).attr('href', href);
-								var li  = $('<li />').addClass('result').append(link);
-			                    resultList.append(li);
-								break;
-										
-			                }
-					}
-
-		            }
+                    if(!settings.ajax){
+                        staticParse(currentVal);
+                    }else{
+                        ajaxParse(currentVal);
+                    }
 
 				}else{
 		            resultBox.fadeOut(500);
@@ -97,6 +74,56 @@
 		 			resultBox.fadeIn(500);
 		        }
             });
+
+         function staticParse(userInput){
+             resultBox.fadeIn(500);
+             resultList.html("<li class='nomatch'>No match found.</li>");
+
+             for(var i in searchTerms){
+                 var searchString = searchTerms[i];
+                 searchString = $.trim(searchString);
+                 var keyVal = searchString.split("::");
+                 var href = keyVal[1];
+                 var title=keyVal[0]
+                 var searchArr = $.trim(title).split(" ");
+
+                 for (var j in searchArr){
+                     if($('li.nomatch').length > 0) $("li.nomatch").remove();
+                     var searchTerm = searchArr[j].toLowerCase();
+                     var keyLength = userInput.length;
+                     var searchTermSlice = searchTerm.slice(0,keyLength);
+
+
+                     if(userInput==searchTermSlice){
+                         var link = $('<a />').text(title).attr('href', href);
+                         var li  = $('<li />').addClass('result').append(link);
+                         resultList.append(li);
+                         break;
+
+                     }
+                 }
+
+             }
+         }
+
+         function ajaxParse(userInput){
+             var ajaxUrl = settings.ajaxUrl+"?s="+userInput;
+             resultList.html("<li class='nomatch'>No match found.</li>");
+             resultBox.fadeIn(500);
+             $.getJSON(ajaxUrl, function(results){
+                console.log(results);
+                 if($('li.nomatch').length > 0) $("li.nomatch").remove();
+                 var result;
+                 for (var i in results){
+                    result = results[i];
+                     var link = $('<a />').text(result.text).attr('href', result.url);
+                     var li  = $('<li />').addClass('result').append(link);
+                     resultList.append(li);
+
+                 }
+
+             });
+         }
 
 		function resultLogic(e, slHeight, rbHeight){
             var scrollPos;
