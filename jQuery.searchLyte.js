@@ -125,7 +125,7 @@
              });
          }
 
-		function resultLogic(e, slHeight, rbHeight){
+		 function resultLogic(e, slHeight, rbHeight){
             var scrollPos;
             var activeElement =  resultList.find('li.active');
             var liHeight = activeElement.innerHeight();

@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="jQuery.searchLyte.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#searchKeywords").searchLyte();
+		$("#searchKeywords").searchLyte({ajax:true});
 	});
 	
 	</script>
@@ -138,6 +138,38 @@
 					       <p>The query input has no default id as this is where you attach the $.searchLyte plugin. An example of this would be: <br /> <code>$("#my-cool-input").searchLyte();</code></p>
 					
 					   </li>
+                    <li>
+
+                        <p><strong>New Feature - Ajax Support</strong></p>
+                        <p>Same domain ajax support has been added to this plugin. To use:</p>
+                        <ul>
+                            <li>In the plugin settings you must set the ajax option to true and set a value for the ajaxUrl option.
+              <pre>
+
+              $("#searchKeywords").searchLyte({ajax:true, ajaxUrl:'http://myajaxurl.com'});
+              </pre>
+                            </li>
+                            <li>Your server side code must look for a get parameter called 's'. Example: http://example.com?s=search+query</li>
+                            <li>The results should be spit out in a json_encoded array. In php it would look like this:
+                  <pre>
+                   $arr=array(
+                      0=>array(
+                        'text'=>'apple',
+                        'url'=>'http://apple.com'
+                      ),
+                      1=>array(
+                        'text'=>'tacoma',
+                        'url'=>'http://www.CityOfTacoma.org'
+                      )
+                   );
+                    echo json_encode($arr);
+                  </pre>
+                            </li>
+
+
+                        </ul>
+
+                    </li>
 					
 				</ul>
 				
@@ -164,6 +196,7 @@
 		ajax:false,
 		scrollSpeed:300, //how fast the results box scrolls through your results
 		autoComplete: 'off' //sets the autoComplete attribute to off so it plays nice with your browser
+        ajaxUrl:'json.php' //the url to send our search query to if ajax option is set to true
 	});
 	</code>
 	</pre>
@@ -192,12 +225,13 @@
 	
 				</code>
 		</pre>
-	
+
+
+
 	
 		<h2>Roadmap Items</h2>
 		<ul>
 			<li>Refactor and minify code</li>
-			<li>Add Ajax functionality</li>
 			<li>Add an option to have search result selection open in new window</li>
 			<li>Improve the show/hide functionality of the result box</li>
 

@@ -6,7 +6,7 @@ if($_GET['s']){
         'url'=>'http://apple.com'),
         1=>array(
             'text'=>'tacoma',
-            'url'=>'http://tacoma.com')
+            'url'=>'http://www.cityoftacoma.org')
     );
     echo json_encode($arr);
 }
